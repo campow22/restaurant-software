@@ -1,4 +1,4 @@
-# Restaurant Training Platform
+# ServingSmart AI
 
 An AI-powered training platform for restaurants that eliminates setup friction and accelerates staff development.
 
