@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ServingSmart AI - Restaurant Training Made Simple</title>
+    <meta name="description" content="AI-powered training platform that cuts restaurant training time in half and reduces costly errors. Zero setup required.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            padding: 20px 0;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .cta-button {
+            background: #2563eb;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #1d4ed8;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 24px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: white;
+            color: #2563eb;
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Problem Section */
+        .problem {
+            padding: 80px 0;
+            background: #f9fafb;
+        }
+
+        .problem h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #1f2937;
+        }
+
+        .pain-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .pain-point {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .pain-point h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #dc2626;
+        }
+
+        .pain-point p {
+            color: #6b7280;
+        }
+
+        /* Solution Section */
+        .solution {
+            padding: 80px 0;
+        }
+
+        .solution h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #1f2937;
+        }
+
+        .solution .tagline {
+            text-align: center;
+            font-size: 20px;
+            color: #6b7280;
+            margin-bottom: 60px;
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .benefit {
+            text-align: center;
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        .benefit h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1f2937;
+        }
+
+        .benefit p {
+            color: #6b7280;
+            font-size: 16px;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .stats h2 {
+            font-size: 36px;
+            margin-bottom: 60px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .stat {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 0;
+            background: #f9fafb;
+        }
+
+        .how-it-works h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #1f2937;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .step {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            width: 40px;
+            height: 40px;
+            background: #2563eb;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .step h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            margin-top: 15px;
+            color: #1f2937;
+        }
+
+        .step p {
+            color: #6b7280;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            padding: 80px 0;
+            text-align: center;
+            background: #1f2937;
+            color: white;
+        }
+
+        .final-cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .final-cta p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .final-cta .cta-button {
+            background: #2563eb;
+            color: white;
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            display: inline-block;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .final-cta .cta-button:hover {
+            transform: translateY(-2px);
+            background: #1d4ed8;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            background: #111827;
+            color: #9ca3af;
+            text-align: center;
+        }
+
+        footer a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero .subtitle {
+                font-size: 18px;
+            }
+
+            .problem h2, .solution h2, .stats h2, .how-it-works h2, .final-cta h2 {
+                font-size: 28px;
+            }
+
+            .benefits, .pain-points, .stats-grid, .steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">ServingSmart AI</div>
+                <a href="#contact" class="cta-button">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Restaurant Training Made Simple</h1>
+            <p class="subtitle">Cut training time in half. Reduce costly errors. Empower your team.</p>
+            <a href="#contact" class="hero-cta">Book a Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <h2>Training Shouldn't Be This Hard</h2>
+            <div class="pain-points">
+                <div class="pain-point">
+                    <h3>⏱️ Training Takes Forever</h3>
+                    <p>New servers take 8-12 weeks to reach full productivity, costing you thousands in lost efficiency.</p>
+                </div>
+                <div class="pain-point">
+                    <h3>💸 Costly Errors</h3>
+                    <p>Wrong orders, allergen mistakes, and service errors cost $500-2,000/month in comps and remakes.</p>
+                </div>
+                <div class="pain-point">
+                    <h3>📋 Inconsistent Knowledge</h3>
+                    <p>No systematic way to test menu knowledge means gaps in service quality across your team.</p>
+                </div>
+                <div class="pain-point">
+                    <h3>🔄 High Turnover</h3>
+                    <p>Constantly retraining new hires drains manager time and impacts guest experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container">
+            <h2>Introducing ServingSmart AI</h2>
+            <p class="tagline">AI-powered training that requires almost zero setup</p>
+            <div class="benefits">
+                <div class="benefit">
+                    <div class="benefit-icon">🤖</div>
+                    <h3>Auto-Generated Content</h3>
+                    <p>Upload your menu, and our AI creates comprehensive training materials in minutes—not weeks.</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">📱</div>
+                    <h3>Mobile-First Learning</h3>
+                    <p>Staff learn on their phones with engaging quizzes, flashcards, and gamification.</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">📊</div>
+                    <h3>Manager Dashboard</h3>
+                    <p>Real-time visibility into who knows what. Identify knowledge gaps instantly.</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Proven Results</h3>
+                    <p>Measurable improvements in training time, error rates, and staff confidence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <h2>Results That Matter</h2>
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-number">50%</div>
+                    <div class="stat-label">Faster Training</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">40%</div>
+                    <div class="stat-label">Fewer Errors</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">5-10x</div>
+                    <div class="stat-label">ROI</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Zero</div>
+                    <div class="stat-label">Setup Hassle</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Upload Your Menu</h3>
+                    <p>Share your menu, recipes, and service standards. Takes 10 minutes.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>AI Creates Training</h3>
+                    <p>Our platform automatically generates quizzes, flashcards, and learning modules.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Staff Learn & Practice</h3>
+                    <p>Your team uses their phones to learn menu details, test knowledge, and track progress.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Track Results</h3>
+                    <p>Dashboard shows who's ready, who needs help, and measurable improvements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="contact">
+        <div class="container">
+            <h2>Ready to Transform Your Training?</h2>
+            <p>We're conducting interviews with restaurant managers to refine our platform.<br>Share your challenges and be first in line for our pilot program.</p>
+            <a href="mailto:cameron@servingsmart-ai.com?subject=Customer Discovery Interview Request" class="cta-button">Schedule a 10-Minute Interview</a>
+            <p style="margin-top: 30px; font-size: 16px; opacity: 0.8;">
+                Or email us directly: <a href="mailto:cameron@servingsmart-ai.com" style="color: #60a5fa;">cameron@servingsmart-ai.com</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 ServingSmart AI. All rights reserved.</p>
+            <p style="margin-top: 10px;">
+                <a href="https://github.com/campow22/restaurant-software">GitHub</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
